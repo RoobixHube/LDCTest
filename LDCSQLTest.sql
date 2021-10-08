@@ -5,7 +5,7 @@ SELECT
 	,pre.Street
 	,pre.PostCode
 	,foo.Count AS 'FootFallCount'
-FROM #Businesses bus
-LEFT JOIN #Premises pre ON pre.BusinessId = bus.Id
+FROM Businesses bus
+LEFT JOIN Premises pre ON pre.BusinessId = bus.Id
 LEFT JOIN (SELECT ff.PremisesId, Sum(ff.Count) AS 'Count' 
-	FROM #FootFall ff GROUP BY ff.PremisesId) foo ON foo.PremisesId = pre.Id
+	FROM FootFall ff GROUP BY ff.PremisesId) foo ON foo.PremisesId = pre.Id
